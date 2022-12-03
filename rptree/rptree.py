@@ -11,9 +11,21 @@ SPACE_PREFIX = "   "
 
 class DirectoryTree:
     def __init__(self, root_dir) -> None:
+        """ Initialize the DirectoryTree object.
+            :param root_dir: The root directory.
+            :type root_dir: pathlib.Path
+            :return: None
+        """
+
         self._generator = _TreeGenerator(root_dir)
 
     def generate(self) -> str:
+        """ Generate the directory tree.
+            :param None
+            :return: The directory tree.
+            :rtype: str
+        """
+
         tree = self._generator.build_tree()
 
         for entry in tree:
@@ -34,7 +46,9 @@ class _TreeGenerator:
     def build_tree(self) -> list:
         """ Build the tree.
             :param None
-            :return: The tree. """
+            :return: The tree. 
+            :rtype: list
+        """
 
         self._tree_head()
         self._tree_body(self._root_dir)
